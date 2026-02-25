@@ -1,0 +1,138 @@
+/* full-page centering */
+.page{
+  min-height: 100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding: 28px 16px 18px;
+  gap: 14px;
+}
+
+/* collage layer iza kartice */
+.bg-collage{
+  position: fixed;
+  inset: 0;
+  z-index: -1;          /* iznad background slike (body::before), ispod kartice */
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* stikeri: full color, bez blur-a */
+.bg-sticker{
+  position: absolute;
+  opacity: 1;
+  filter: drop-shadow(0 10px 24px rgba(0,0,0,0.55));
+  mix-blend-mode: normal;
+  user-select: none;
+  pointer-events: none;
+  image-rendering: auto;
+}
+
+/* glassy card */
+.card{
+  background: rgba(18,24,38,0.78);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 22px;
+  box-shadow: 0 22px 70px rgba(0,0,0,0.55);
+  backdrop-filter: blur(10px);
+}
+
+/* invite wrapper */
+.invite{
+  width: min(720px, 100%);
+  padding: 22px 22px 18px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* suptilan shine */
+.invite::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background:
+    radial-gradient(620px 220px at 20% 0%, rgba(124,58,237,0.32), transparent 62%),
+    radial-gradient(520px 240px at 90% 10%, rgba(34,197,94,0.10), transparent 60%);
+  pointer-events:none;
+  opacity: .9;
+}
+
+/* pill label (POZIVNICA) */
+.pill{
+  position: relative;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
+  color: rgba(230,234,242,0.88);
+  font-size: 12px;
+  letter-spacing: .10em;
+  margin-bottom: 12px;
+}
+
+/* title */
+h1{
+  position: relative;
+  margin: 0 0 10px;
+  font-size: 40px;
+  line-height: 1.05;
+}
+
+/* paragraphs */
+.sub{
+  position: relative;
+  margin: 0 0 14px;
+  color: rgba(154,164,178,0.95);
+}
+
+/* highlight line (Jackson slavi) */
+.highlight{
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  margin-top: 6px;
+}
+
+/* final date/location block */
+.final{
+  margin-top: 18px;
+  font-weight: 500;
+  color: #e6eaf2;
+}
+
+/* photo */
+.birthday-photo{
+  margin-top: 20px;
+  width: 300px;
+  max-width: 70%;
+  border-radius: 18px;
+  object-fit: cover;
+  box-shadow:
+    0 12px 40px rgba(0,0,0,0.55),
+    0 0 25px rgba(124,58,237,0.25);
+  transition: transform .3s ease;
+}
+
+.birthday-photo:hover{
+  transform: scale(1.05);
+}
+
+/* footer */
+.foot{
+  color: rgba(154,164,178,0.62);
+  font-size: 12px;
+}
+
+/* debug marker (ako ga koristiš) */
+.debug{
+  position: fixed;
+  bottom: 8px;
+  right: 8px;
+  font-size: 12px;
+  opacity: .55;
+}
